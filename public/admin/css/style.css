@@ -1,0 +1,184 @@
+.header {
+    background: #202020;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.header .inner-logo a {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.body .sider {
+    width: 150px;
+    background: #323232;
+    color: #fff;
+    height: calc(100vh - 56px);
+    position: fixed;
+    top: 56px;
+    left: 0;
+}
+
+.body .main {
+    margin: 15px;
+    position: relative;
+    left: 150px;
+    width: calc(100% - 180px);
+}
+
+.sider .inner-menu ul li  a {
+    color: #fff;
+    display: block;
+    padding:  6px 10px;
+    border-bottom: 1px solid #515151;
+}
+.sider .inner-menu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+
+
+
+[show-alert] {
+position: fixed;
+top: 70px;
+right: 15px;
+z-index: 9999;
+
+}
+
+[show-alert].alert-hidden {
+animation-name: alert-hidden;
+animation-duration: 0.5s;
+animation-fill-mode: both;
+}
+@keyframes alert-hidden {
+from {
+right: 15px;
+}
+to{
+right: -100%;
+display: none;
+}
+}
+[show-alert] [close-alert]{
+background:#ffffffc4;
+display: inline-block;
+width: 24px;
+height: 24px;
+line-height: 24px;
+text-align: center;
+font-weight: 600;
+border-radius: 50%;
+cursor: pointer;
+}
+
+.image-preview {
+     width: 150px;
+    height: auto;
+    margin-top: 15px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+}
+.image-preview[src=""] {
+    display: none;
+}
+
+
+
+.product-detail-container {
+    max-width: 720px;
+    margin: 50px auto;
+    padding: 50px;
+    background: linear-gradient(135deg, #ffffff, #f9f9f9);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
+    color: #222;
+  }
+  
+  .product-title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    color: #1a1a1a;
+    letter-spacing: -1px;
+  }
+  
+  .product-price,
+  .product-discount,
+  .product-stock,
+  .product-position,
+  .product-description,
+  .product-status {
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .product-thumbnail-wrapper {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .product-thumbnail {
+    width: 160px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease;
+  }
+  
+  .product-thumbnail:hover {
+    transform: scale(1.07);
+  }
+  
+  .status-active {
+    background-color: #00b894;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0, 184, 148, 0.3);
+  }
+  
+  .status-inactive {
+    background-color: #d63031;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(214, 48, 49, 0.3);
+  }
+  
+  .btn-edit {
+    background: linear-gradient(145deg, #ffce00, #ffc107);
+    color: #000;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(255, 193, 7, 0.4);
+  }
+  
+  .btn-edit:hover {
+    background: linear-gradient(145deg, #e6b800, #e0a800);
+    transform: translateY(-2px) scale(1.02);
+  }
+  

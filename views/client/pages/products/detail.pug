@@ -1,0 +1,88 @@
+extends ../../layouts/default.pug
+
+block style
+    style.
+        .product-detail-wrapper {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 30px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+        font-family: 'Arial', sans-serif;
+        color: #333;
+        text-align: center;
+        }
+
+        .product-title {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        }
+
+        .product-thumbnail {
+        width: 200px;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        margin: 20px 0;
+        }
+
+        .status-active {
+        background-color: #10b981;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        display: inline-block;
+        }
+
+        .status-inactive {
+        background-color: #ef4444;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        display: inline-block;
+        }
+
+        .product-description {
+        margin-top: 10px;
+        font-size: 15px;
+        line-height: 1.6;
+        }
+
+
+block main
+  .product-detail-wrapper
+    if product.title
+      h1.product-title #{product.title}
+
+    if product.price
+      p Giá: 
+        b #{product.price}$
+
+    if product.discountPercentage
+      p Giảm giá: 
+        b #{product.discountPercentage}%
+
+    if product.stock
+      p Còn lại: 
+        b #{product.stock}
+
+    if product.thumbnail
+      img.product-thumbnail(src=product.thumbnail, alt="Ảnh sản phẩm")
+
+    if product.status
+      p Trạng thái: 
+        if product.status === 'active'
+          span.status-active Hoạt động
+        else
+          span.status-inactive Dừng hoạt động
+
+    if product.position
+      p Vị trí: 
+        b #{product.position}
+
+    if product.description
+      p.product-description #{product.description}
