@@ -37,10 +37,17 @@ module.exports.index = async (req, res) => {
     );
     //phan trang
     //dùng hàm limit để giới hạn phần tử 1 trang và skip qua các sản phẩm 
+    //sort
+    let sort = {};
+    if (req.query.sortKey && req.query.sortValue) {
+        sort[req.query.sortKey] = req.query.sortValue;
+    } else {
+        sort.position = "desc";
+    }
+    //sort
+
     const products = await Product.find(find)
-        .sort({
-            position: "desc"
-        })
+        .sort(sort)
         .limit(objectPagination.limitItem)
         .skip(objectPagination.skip);
 
@@ -257,8 +264,8 @@ module.exports.editPatch = async (req, res) => {
         await Product.updateOne({
             _id: id
         }, req.body);
-    req.flash("success", "Cập nhật sản phẩm thành công");
-        
+        req.flash("success", "Cập nhật sản phẩm thành công");
+
     } catch (error) {
         req.flash("error", "Cập nhật sản phẩm thất bại");
 
@@ -266,21 +273,21 @@ module.exports.editPatch = async (req, res) => {
     res.redirect("back");
 };
 //[GET] admin/product/detail/:id
-module.exports.detail = async (req,res) =>{
+module.exports.detail = async (req, res) => {
     try {
-        const id=req.params.id;
-    const find ={
-        _id: id,
-        deleted: false
-    }
-    const product = await Product.findOne(find);
-    res.render("admin/pages/products/detail",{
-        pageTitle:product.title,
-        product:product
-    })
+        const id = req.params.id;
+        const find = {
+            _id: id,
+            deleted: false
+        }
+        const product = await Product.findOne(find);
+        res.render("admin/pages/products/detail", {
+            pageTitle: product.title,
+            product: product
+        })
     } catch (error) {
         res.redirect(`${systemConfig.prefixAdmin}/products`);
-       
+
     }
 
 }

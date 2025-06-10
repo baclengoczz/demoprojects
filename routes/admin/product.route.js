@@ -29,6 +29,7 @@ router.delete('/deleteReal/:id', controller.deleteItemReal);
 router.get("/edit/:id", controller.edit);
 router.patch("/edit/:id",
     upload.single('thumbnail'),
+    uploadCloud.upload,
     validate.createPost,
     controller.editPatch);
 router.get("/detail/:id", controller.detail);
